@@ -23,8 +23,10 @@ public static bool AreBothPointsOnTheSameSideOfTheLine(Vector3 lineStart, Vector
 ```c#
 public static Vector3 GetClosestPointOnFiniteLine(Vector3 point, Vector3 lineStart, Vector3 lineEnd)
     {
-        Vector3 lineDirection = (lineEnd - lineStart).normalized;
-        float projectLength = Mathf.Clamp(Vector3.Dot(point - lineStart, lineDirection), 0f, lineDirection.magnitude);
+        Vector3 lineDirection = lineEnd - lineStart;
+        float lineLength = lineDirection.magnitude;
+        lineDirection.Normalize();
+        float projectLength = Mathf.Clamp(Vector3.Dot(point - lineStart, lineDirection), 0f, lineLength);
         return lineStart + lineDirection * projectLength;
     }
 ```
