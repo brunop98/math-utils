@@ -59,3 +59,16 @@ private static void DrawBoundsOnGizmos(GameObject objWithRenderer)
         }
 ```
 
+<h2>Inverse Bisector</h2>
+
+<img src="https://raw.githubusercontent.com/brunop98/math-utils/main/gifs/bissector.gif" height="250"/>
+
+```c#
+public static Vector3 GetInverseBissector(Vector3 p1, Vector3 p2, Vector3 p3)
+    {
+        Vector3 newP1 = (p1 - p2).normalized + p2;
+        Vector3 newP3 = (p3 - p2).normalized + p2;
+        Vector3 bisector = (newP1 + newP3) / 2;
+        return (p2 - bisector).normalized;
+    }
+```
