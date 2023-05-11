@@ -63,6 +63,8 @@ private static void DrawBoundsOnGizmos(GameObject objWithRenderer)
 
 <img src="https://raw.githubusercontent.com/brunop98/math-utils/main/gifs/bissector.gif" height="250"/>
 
+Returns the blue line direction
+
 ```c#
 public static Vector3 GetInverseBissector(Vector3 p1, Vector3 p2, Vector3 p3)
     {
