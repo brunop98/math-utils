@@ -74,3 +74,24 @@ public static Vector3 GetInverseBissector(Vector3 p1, Vector3 p2, Vector3 p3)
         return (p2 - bisector).normalized;
     }
 ```
+<h2>Bounds Center</h2>
+
+Returns the bounds center of the object and it`s children.
+
+```c#
+public static Bounds GetBounds(Transform obj)
+        {
+            Renderer[] renderers = obj.GetComponentsInChildren<Renderer>();
+            
+            if (renderers.Length == 0) return new Bounds(obj.position, Vector3.zero);
+
+            Bounds bounds = renderers[0].bounds;
+            for (int index = 1; index < renderers.Length; index++)
+            {
+                Renderer renderer = renderers[index];
+                bounds.Encapsulate(renderer.bounds);
+            }
+
+            return bounds;
+        }
+```
