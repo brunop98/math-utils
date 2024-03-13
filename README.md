@@ -1,5 +1,6 @@
 # math-utils
 Math functions to help game development 
+You can support me checking my website: http://harpiagames.com
 
 Code for Unity 3D
 
