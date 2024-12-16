@@ -96,3 +96,17 @@ public static Bounds GetBounds(Transform obj)
             return bounds;
         }
 ```
+
+<h2>Area of ant triangle</h2>
+
+Returns the area of a triangle giben its 3 vertices point.
+
+```c#
+    public static float CalculateAreaOfTriangle(Vector3 a, Vector3 b , Vector3 c)
+    {
+        float res  = Mathf.Pow(((b.x * a.y) - (c.x * a.y) - (a.x * b.y) + (c.x * b.y) + (a.x * c.y) - (b.x * c.y)), 2.0f);
+        res += Mathf.Pow(((b.x * a.z) - (c.x * a.z) - (a.x * b.z) + (c.x * b.z) + (a.x * c.z) - (b.x * c.z)), 2.0f);
+        res += Mathf.Pow(((b.y * a.z) - (c.y * a.z) - (a.y * b.z) + (c.y * b.z) + (a.y * c.z) - (b.y * c.z)), 2.0f);
+        return Mathf.Sqrt(res) * 0.5f;
+    }
+```
